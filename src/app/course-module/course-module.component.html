@@ -1,0 +1,91 @@
+<div class="course-module">
+  <div class="course-module__toolbar">
+    <a href="/">Volver al inicio</a>
+  </div>
+  <div class="course-module__form" id="form" >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <legend>{{ courseModule.name }}</legend>
+
+        <label id="courseName-label" for="courseName">Nombre*</label>
+        <input
+          id="courseName"
+          type="text"
+          formControlName="courseName"
+          class="input-field"
+          [attr.aria-invalid]="form.get('courseName').errors !== null"
+          required
+        />
+
+        <label id="description-label" for="description">Descripción*</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="input-field"
+          [attr.aria-invalid]="form.get('description').errors !== null"
+          required
+        ></textarea>
+
+        <label id="teacher-label" for="teacher">Profesor*</label>
+        <select
+          id="teacher"
+          formControlName="teacher"
+          class="input-field"
+          [attr.aria-invalid]="form.get('teacher').errors !== null"
+          required
+        >
+          <option *ngFor="let teacher of teachers" [value]="teacher">
+            {{ teacher }}
+          </option>
+        </select>
+
+        <h4>Tópicos de la clase*</h4>
+        <div
+          class="class-topics"
+          formArrayName="topics"
+        >
+          <div
+            class="class-topics__item"
+            *ngFor="let control of topics.controls; index as controlIndex"
+          >
+            <!-- Esta lista de formularios dinámicos debería ser un componente -->
+            <button class="item__remove" (click)="removeTopic(controlIndex)">
+              Eliminar
+            </button>
+
+            <label id="topicName-label-{{controlIndex}}" for="topicName-{{controlIndex}}">Nombre*</label>
+            <input
+              id="topicName-{{controlIndex}}"
+              type="text"
+              [formControl]="control.get('topicName')"
+              class="input-field"
+              [attr.aria-invalid]="control.get('topicName').errors !== null"
+              required
+            />
+
+            <label id="topicType-label-{{controlIndex}}" for="teacher">Tipo*</label>
+            <select
+              id="topicType-{{controlIndex}}"
+              [formControl]="control.get('topicType')"
+              class="input-field"
+              [attr.aria-invalid]="control.get('topicType').errors !== null"
+              required
+            >
+              <option *ngFor="let topicCategory of topicCategories" [value]="topicCategory">
+                {{ topicCategory }}
+              </option>
+            </select>
+
+          </div>
+        
+          <button class="class-topics__add" (click)="addTopic()">Agregar nuevo tópico +</button>
+        </div>
+
+        <button type="submit">Guardar</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+
+

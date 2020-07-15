@@ -1,0 +1,13 @@
+<div class="dashboard">
+  <h2> Curso Angular</h2>
+  <ul class="dashboard__list">
+    <li class="list__item"
+      *ngFor="let item of courseModules"
+      role="listitem"
+      (click)="onCourseModuleClick(item.id)"
+    >
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+    </li>
+  </ul>
+</div>

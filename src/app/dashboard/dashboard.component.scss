@@ -1,0 +1,21 @@
+@import '../../styles';
+
+.dashboard {
+  &__list {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+
+    .list {
+      &__item {
+        cursor: pointer;
+        padding: 15px;
+        background-color: $tokens-color-grey-light;
+        border: dotted $tokens-color-grey-light 1px;
+      }
+    }
+  }
+}

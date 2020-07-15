@@ -13,8 +13,11 @@
 👉🏻 &nbsp;Módulos, Componentes y su ciclo de vida<br/>
 👉🏻 &nbsp;Inyección de dependencias<br/>
 
-Programa completo [aquí](https://drive.google.com/open?id=1OebQneE4YssHEIT6IB-jbGms0PL6odKP)
+Programa completo [aquí](https://drive.google.com/file/d/1aiU-FbR47aqTvgKfjLwj4pNdLlolV4TX)
 
 #### Actividades de la clase 🧑🏻‍🏫
+1. Aplicar los conceptos de ciclo de vida de componente y comunicación entre componentes de forma de re-estructurar el archivo `course-module` y separar el listado de tópicos donde cada tópico serán un componente nuevo llamado `course-topic` y los valores asociados a cada uno deben ser reflejado en el modelo subyacente.
+
+2. Aplicar 2 maneras para poder mantener el modelo de comunicación entre ambos componentes. Una de forma de comunicación en ambos sentidos `two-way binding` y otra utilizando un servicio e inyección de dependencias.
 
 #### Actividades para el alumno 👨🏻‍💻
